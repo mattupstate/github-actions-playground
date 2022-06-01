@@ -18,9 +18,9 @@ fun Application.configureRouting() {
         exception<AuthorizationException> { call, cause ->
             call.respond(HttpStatusCode.Forbidden)
         }
-    
+
     }
-    
+
     install(Locations) {
     }
     install(DoubleReceive)
@@ -29,6 +29,11 @@ fun Application.configureRouting() {
         get("/") {
             call.respondText("Hello World!")
         }
+
+        get("/hello") {
+            call.respondText("Hello World!")
+        }
+
         // Static plugin. Try to access `/static/index.html`
         static("/static") {
             resources("static")
